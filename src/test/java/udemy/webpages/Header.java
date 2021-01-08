@@ -1,16 +1,16 @@
+package udemy.webpages;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import javax.swing.*;
-
-public class MainPage {
+public class Header {
     private WebDriver driver;
     private Actions actions;
 
-    public MainPage(WebDriver driver) {
+    public Header(WebDriver driver) {
         this.driver = driver;
         actions = new Actions(driver);
         PageFactory.initElements(driver, this);
@@ -20,7 +20,7 @@ public class MainPage {
     private WebElement logInButton;
     @FindBy(xpath = "//a[@class='udlite-btn udlite-btn-medium udlite-btn-primary udlite-heading-sm']")
     private WebElement signUpButton;
-    @FindBy(xpath = "//input[@class='udlite-text-input udlite-text-input-small udlite-text-sm udlite-search-form-autocomplete-input js-header-search-field']")
+    @FindBy(xpath = "//input[contains(@class, 'udlite-text-input udlite-text-input-small')]")
     private WebElement searchField;
     @FindBy(xpath = "//a[@class='udlite-btn udlite-btn-large udlite-btn-ghost udlite-heading-md udlite-btn-icon udlite-btn-icon-large js-header-button header--dropdown-button--1BviY']")
     private WebElement cartButton;
@@ -35,12 +35,12 @@ public class MainPage {
     @FindBy(xpath = "//div[@class='udlite-text-sm header--header--3sK1h header--flex-middle--2Xqjv']//img[@alt='Udemy']")
     private WebElement udemyLogo;
 
-    public MainPage clickLogIn() {
+    public Header clickLogIn() {
         logInButton.click();
         return this;
     }
 
-    public MainPage clickSignUp() {
+    public Header clickSignUp() {
         signUpButton.click();
         return this;
     }
@@ -50,7 +50,7 @@ public class MainPage {
         return new CartPage();
     }
 
-    public MainPage moveToCart() {
+    public Header moveToCart() {
         actions.moveToElement(cartButton).build().perform();
         return this;
     }
@@ -67,6 +67,6 @@ public class MainPage {
     public SearchPage typeToSearchField(String value) {
         searchField.sendKeys(value);
         searchField.submit();
-        return new SearchPage();
+        return new SearchPage(driver);
     }
 }
