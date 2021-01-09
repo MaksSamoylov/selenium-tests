@@ -47,7 +47,7 @@ public class Header {
 
     public CartPage clickCart() {
         cartButton.click();
-        return new CartPage();
+        return new CartPage(driver);
     }
 
     public Header moveToCart() {
