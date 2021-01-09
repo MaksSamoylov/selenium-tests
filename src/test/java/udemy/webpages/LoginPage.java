@@ -35,7 +35,7 @@ public class LoginPage {
     @FindBy(xpath = "//a[@class='sign-link']")
     private WebElement linkSignUp;
 
-    public String checkTextOfTitlePage() {
+    public String checkTextOfPageTitle() {
         return titleOfPage.getText();
     }
 

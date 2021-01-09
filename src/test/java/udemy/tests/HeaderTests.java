@@ -37,7 +37,7 @@ public class HeaderTests {
     @Test
     public void searchValidCourse() {
         header.typeToSearchField("postman");
-        searchPage.clickOnLevelsCheckboxes(1);
+        searchPage.clickOnLevelsCheckboxes(0);
         Assert.assertTrue(searchPage.getTextOfSearchPage().contains("результатов по запросу «postman»"));
         Assert.assertTrue(searchPage.getTextOfFirstItem().toLowerCase().contains("postman"));
     }

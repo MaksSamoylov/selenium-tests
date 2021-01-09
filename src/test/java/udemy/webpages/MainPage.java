@@ -16,5 +16,9 @@ public class MainPage {
         PageFactory.initElements(driver, this);
     }
 
+    public String getUrl() {
+        return driver.getCurrentUrl();
+    }
+
 
 }
